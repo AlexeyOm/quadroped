@@ -27,33 +27,16 @@ boolean receivelog = true;               // Set this to true if you want to see 
 
 void setup() {
 
-
-/*
-  BOT.attach(hipFrontLeft,   A1,  90, 0, 5);
-  BOT.attach(hipFrontRight,  A0,  90, 1, 0);
-  BOT.attach(hipRearLeft,    10,  90, 0,  -3);
-  BOT.attach(hipRearRight,    4,  90, 0, 5);
- 
-  BOT.attach(kneeFrontLeft,  12,  90, 1, 37);
-  BOT.attach(kneeFrontRight,  2,  90, 0, 40);
-  BOT.attach(kneeRearLeft,   11,  90, 1, 37);
-  BOT.attach(kneeRearRight,   3,  90, 0, 46);
-*/
-
-
-
-
-
   //NAME.attach(motorname, pin, init-angle, flipped, offset-angle);
-  BOT.attach(hipFrontLeft,   A1,  135, 0, 5);
-  BOT.attach(hipFrontRight,  A0,  135, 1, 0);
-  BOT.attach(hipRearLeft,    10,  135, 1,  3);
-  BOT.attach(hipRearRight,    4,  135, 0, 5);
+  BOT.attach(hipFrontLeft,   A1,  120, 0, 5);
+  BOT.attach(hipFrontRight,  A0,  120, 1, 0);
+  BOT.attach(hipRearLeft,    10,  120, 1,  3);
+  BOT.attach(hipRearRight,    4,  120, 0, 5);
  
-  BOT.attach(kneeFrontLeft,  12,  120, 1, 37);
-  BOT.attach(kneeFrontRight,  2,  120, 0, 40);
-  BOT.attach(kneeRearLeft,   11,  120, 1, 37);
-  BOT.attach(kneeRearRight,   3,  120, 0, 46);
+  BOT.attach(kneeFrontLeft,  12,  110, 1, 37);
+  BOT.attach(kneeFrontRight,  2,  110, 0, 40);
+  BOT.attach(kneeRearLeft,   11,  110, 1, 37);
+  BOT.attach(kneeRearRight,   3,  110, 0, 46);
  
   //INIT sounder
   pinMode(sounderPin, OUTPUT);
@@ -180,7 +163,7 @@ void executecommand (void)                // Execute the commands that are store
 { 
   if (command == "WF")
   {
-    stepForward(1);
+    walkForward1(1,100);
     resetserial();
   }
   if (command == "TR")
@@ -310,5 +293,52 @@ int turnRight(int angle, int turnSpeed) {
   
   BOT.animate(turnSpeed);
   
+}
+
+int walkForward1(int steps, int walkSpeed) {
+  
+  BOT.move(hipFrontLeft,   120);
+  BOT.move(hipFrontRight,  120);
+  BOT.move(hipRearLeft,    120);
+  BOT.move(hipRearRight,    120);
+  BOT.move(kneeFrontLeft,  110);
+  BOT.move(kneeFrontRight,  110);
+  BOT.move(kneeRearLeft,   110);
+  BOT.move(kneeRearRight,   110);
+  
+  BOT.animate(walkSpeed);
+  
+  BOT.move(kneeFrontRight,  45);
+  BOT.move(hipFrontRight,  130);
+  BOT.move(kneeRearLeft,  45);
+  BOT.move(hipRearLeft,  105);
+  
+  BOT.animate(walkSpeed);
+  BOT.move(kneeFrontRight,  110);
+  BOT.move(hipFrontRight,  140);
+  BOT.move(kneeRearLeft,  110);
+  BOT.move(hipRearLeft,  90);
+  BOT.animate(walkSpeed);
+  //other legs
+  
+  BOT.move(hipFrontRight,  130);
+  BOT.move(hipRearLeft,  110);
+  
+  
+  BOT.move(kneeFrontLeft,  45);
+  BOT.move(hipFrontLeft,  130);
+  BOT.move(kneeRearRight,  45);
+  BOT.move(hipRearRight,  105);
+  
+  BOT.animate(walkSpeed);
+  BOT.move(hipFrontRight,  120);
+  BOT.move(hipRearLeft,  120);
+  
+  BOT.move(kneeFrontLeft,  110);
+  BOT.move(hipFrontLeft,  140);
+  BOT.move(kneeRearRight,  110);
+  BOT.move(hipRearRight,  90);
+  BOT.animate(walkSpeed);
   
 }
+  
