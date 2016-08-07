@@ -172,8 +172,9 @@ void executecommand (void)                // Execute the commands that are store
 { 
   if (command == "WF")
   {
-    walkForward1(1,100);
-    resetserial();
+    //walkForward1(1,100);
+    stepForward(1);
+    //resetserial();
   }
   if (command == "TR")
   {
@@ -205,8 +206,8 @@ void stepForward(int steps) {
       
       BOT.animate(stepSpeed);
       
-      BOT.move(kneeFrontRight,90 );
-      BOT.move(kneeRearLeft,  90 );
+      BOT.move(kneeFrontRight,110 );
+      BOT.move(kneeRearLeft,  110);
       
       BOT.animate(stepSpeed);
      // delay(stepSpeed);
@@ -221,8 +222,8 @@ void stepForward(int steps) {
       BOT.move(hipFrontLeft,  135 );
       BOT.animate(stepSpeed);
       
-      BOT.move(kneeRearRight,90 );
-      BOT.move(kneeFrontLeft,  90 );
+      BOT.move(kneeRearRight,110 );
+      BOT.move(kneeFrontLeft,  110 );
       
       BOT.animate(stepSpeed);
  
@@ -233,8 +234,8 @@ void stepForward(int steps) {
       
       BOT.animate(stepSpeed/5);
       
-      BOT.move(kneeFrontLeft,90 );
-      BOT.move(kneeRearRight,  90 );
+      BOT.move(kneeFrontLeft,110 );
+      BOT.move(kneeRearRight,  110 );
     BOT.animate(stepSpeed);
 }
 
@@ -297,52 +298,6 @@ int turnRight(int angle, int turnSpeed) {
   
 }
 
-int walkForward1(int steps, int walkSpeed) {
-  
-  BOT.move(hipFrontLeft,   120);
-  BOT.move(hipFrontRight,  120);
-  BOT.move(hipRearLeft,    120);
-  BOT.move(hipRearRight,    120);
-  BOT.move(kneeFrontLeft,  110);
-  BOT.move(kneeFrontRight,  110);
-  BOT.move(kneeRearLeft,   110);
-  BOT.move(kneeRearRight,   110);
-  
-  BOT.animate(walkSpeed);
-  
-  BOT.move(kneeFrontRight,  45);
-  BOT.move(hipFrontRight,  130);
-  BOT.move(kneeRearLeft,  45);
-  BOT.move(hipRearLeft,  105);
-  
-  BOT.animate(walkSpeed);
-  BOT.move(kneeFrontRight,  110);
-  BOT.move(hipFrontRight,  140);
-  BOT.move(kneeRearLeft,  110);
-  BOT.move(hipRearLeft,  90);
-  BOT.animate(walkSpeed);
-  //other legs
-  
-  BOT.move(hipFrontRight,  130);
-  BOT.move(hipRearLeft,  110);
-  
-  
-  BOT.move(kneeFrontLeft,  45);
-  BOT.move(hipFrontLeft,  130);
-  BOT.move(kneeRearRight,  45);
-  BOT.move(hipRearRight,  105);
-  
-  BOT.animate(walkSpeed);
-  BOT.move(hipFrontRight,  120);
-  BOT.move(hipRearLeft,  120);
-  
-  BOT.move(kneeFrontLeft,  110);
-  BOT.move(hipFrontLeft,  140);
-  BOT.move(kneeRearRight,  110);
-  BOT.move(hipRearRight,  90);
-  BOT.animate(walkSpeed);
-  
-}
 
 int turnLeft(int angle, int turnSpeed) {
   
@@ -402,3 +357,101 @@ int turnLeft(int angle, int turnSpeed) {
 
   
 }
+
+
+int walkForward1(int steps, int walkSpeed) {
+  
+  BOT.move(hipFrontLeft,   120);
+  BOT.move(hipFrontRight,  120);
+  BOT.move(hipRearLeft,    120);
+  BOT.move(hipRearRight,    120);
+  BOT.move(kneeFrontLeft,  110);
+  BOT.move(kneeFrontRight,  110);
+  BOT.move(kneeRearLeft,   110);
+  BOT.move(kneeRearRight,   110);
+  
+  BOT.animate(walkSpeed);
+  
+  BOT.move(kneeFrontRight,  45);
+  BOT.move(hipFrontRight,  130);
+ 
+  BOT.animate(walkSpeed);
+  
+  BOT.move(kneeFrontRight,  110);
+  BOT.move(hipFrontRight,  140);
+  
+  BOT.animate(walkSpeed);
+  
+  BOT.move(kneeRearLeft,  45);
+  BOT.move(hipRearLeft,  105);
+  
+  BOT.animate(walkSpeed);
+
+  BOT.move(kneeRearLeft,  110);
+  BOT.move(hipRearLeft,  90);
+  BOT.animate(walkSpeed);
+  //other legs
+  
+  BOT.move(hipFrontRight,  130);
+  BOT.move(hipRearLeft,  110);
+  
+  
+  BOT.move(kneeFrontLeft,  45);
+  BOT.move(hipFrontLeft,  130);
+  BOT.move(kneeRearRight,  45);
+  BOT.move(hipRearRight,  105);
+  
+  BOT.animate(walkSpeed);
+  BOT.move(hipFrontRight,  120);
+  BOT.move(hipRearLeft,  120);
+  
+  BOT.move(kneeFrontLeft,  110);
+  BOT.move(hipFrontLeft,  140);
+  BOT.move(kneeRearRight,  110);
+  BOT.move(hipRearRight,  90);
+  BOT.animate(walkSpeed);
+  
+}
+
+
+
+int standUpFront(int standUpSpeed) {
+  
+  BOT.move(kneeRearLeft,   45);
+  BOT.move(kneeRearRight,   45); 
+  BOT.move(kneeFrontLeft,  110);
+  BOT.move(kneeFrontRight,  110);
+  BOT.animate(standUpSpeed/2);
+  
+  
+  BOT.move(hipFrontLeft,   135);
+  BOT.move(hipFrontRight,  135);
+  BOT.move(hipRearLeft,    170);
+  BOT.move(hipRearRight,    170);
+ 
+  BOT.animate(standUpSpeed/2);
+  
+  BOT.move(kneeRearLeft,   110);
+  BOT.move(kneeRearRight,   110); 
+  BOT.animate(standUpSpeed);  
+  
+  
+ 
+  BOT.move(hipFrontRight,   120);
+  BOT.move(hipFrontLeft,  120);
+  BOT.move(hipRearRight,    120);
+  BOT.move(hipRearLeft,    120);
+ 
+  BOT.move(kneeFrontRight,  110);
+  BOT.move(kneeFrontLeft,  110);
+  BOT.move(kneeRearRight,   110);
+  BOT.move(kneeRearLeft,   110);
+ 
+  BOT.animate(standUpSpeed);
+
+  
+}
+
+
+
+
